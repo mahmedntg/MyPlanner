@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">MyPlanner</string>
+    <string name="userName">userName</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="gender">Gender</string>
+    <string name="dob">DOB</string>
+    <string name="type">Type</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register_user">Registering User ...........</string>
+    <string name="login_user">Login, please wait ...........</string>
+    <string name="loading_diet">Loading, please wait ...........</string>
+    <string name="update_user">Updating User ...........</string>
+    <string name="validation_title_alert">Validation error !</string>
+    <string name="value_required_msg">{0} is required</string>
+    <string name="update_info">Update Info</string>
+    <string name="go_to_diet">Go To Diet</string>
+    <string name="videos">Videos</string>
+    <string name="update">Update</string>
+    <string name="title_logo">NATIONAL GEOGRAPHIC</string>
+    <string name="btn_skip_intro">Skip Intro</string>
+    <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
+
 </resources>

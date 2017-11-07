@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "719317517618",
+    "firebase_url": "https://myplanner-4473e.firebaseio.com",
+    "project_id": "myplanner-4473e",
+    "storage_bucket": "myplanner-4473e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719317517618:android:b4357672493c3cef",
+        "android_client_info": {
+          "package_name": "com.example.company.myplanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719317517618-fbfuc50dknlq7c5cnc5i395phc5mr6uv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.company.myplanner",
+            "certificate_hash": "a11b3ae784619be1179c56a7d85630e289b3172d"
+          }
+        },
+        {
+          "client_id": "719317517618-mc8ktuo5gh0v0e28oad73nahj8poj566.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKqvwl68nXiqPVjlqS2dum1Zn448KaphA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719317517618-mc8ktuo5gh0v0e28oad73nahj8poj566.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

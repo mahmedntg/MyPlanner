@@ -7,12 +7,93 @@
     tools:context="com.example.company.myplanner.MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_alignBaseline="@+id/loginEmailET"
+        android:layout_alignBottom="@+id/loginEmailET"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/userName"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.572" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/loginPasswordET"
+        android:layout_alignBottom="@+id/loginPasswordET"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginBottom="336dp"
+        android:layout_marginLeft="19dp"
+        android:text="@string/password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="112dp"
+        android:layout_height="46dp"
+        android:layout_alignBaseline="@+id/registerBtn"
+        android:layout_alignBottom="@+id/registerBtn"
+        android:layout_marginBottom="188dp"
+        android:layout_marginLeft="37dp"
+        android:onClick="loginBtnClicked"
+        android:text="@string/login"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        tools:text="@string/login" />
+
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_width="120dp"
+        android:layout_height="46dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="188dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginRight="20dp"
+        android:onClick="registerBtnClicked"
+        android:text="@string/register"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/loginEmailET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="47dp"
+        android:layout_marginTop="66dp"
+        android:layout_toEndOf="@+id/registerBtn"
+        android:layout_toRightOf="@+id/registerBtn"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintLeft_toRightOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/loginPasswordET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/loginEmailET"
+        android:layout_alignStart="@+id/loginEmailET"
+        android:layout_below="@+id/loginEmailET"
+        android:layout_marginLeft="47dp"
+        android:layout_marginTop="35dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintLeft_toRightOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/loginEmailET" />
 </android.support.constraint.ConstraintLayout>

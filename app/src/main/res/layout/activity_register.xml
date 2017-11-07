@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.company.myplanner.RegisterActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/table_margin"
+        android:padding="@dimen/table_padding"
+        android:stretchColumns="1">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/tableColumnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name" />
+
+            <EditText
+                android:id="@+id/edit_name"
+                style="@style/editTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView12"
+                style="@style/tableColumnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dob" />
+
+            <EditText
+                android:id="@+id/edit_dob"
+                style="@style/editTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/tableColumnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender" />
+
+            <RadioGroup
+                android:id="@+id/genderRG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/maleRadioBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:id="@+id/femaleRadioBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female" />
+            </RadioGroup>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView13"
+                style="@style/tableColumnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/type" />
+
+            <RadioGroup
+                android:id="@+id/typeRG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/studentRadioBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student" />
+
+                <RadioButton
+                    android:id="@+id/employeeRadioBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Employee" />
+            </RadioGroup>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView8"
+                style="@style/tableColumnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/userName" />
+
+            <EditText
+                android:id="@+id/edit_userName"
+                style="@style/editTextStyle.emailStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView9"
+                style="@style/tableColumnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password" />
+
+            <EditText
+                android:id="@+id/edit_password"
+                style="@style/editTextStyle.passwordStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                style="@style/buttonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="20dp"
+                android:layout_span="2"
+                android:onClick="registerUserBtnClicked"
+                android:text="@string/register" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
