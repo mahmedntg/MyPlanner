@@ -2,6 +2,7 @@ package com.example.company.myplanner;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText emailET, passwordET;
+    private EditText emailEditText, passwordEditText;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
     private AlertDialog alertDialog;
@@ -29,47 +30,49 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String alertTitle = getString(R.string.validation_title_alert);
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
-        alertDialog = MyAlertDialog.createAlertDialog(this, alertTitle);
-        emailET = (EditText) findViewById(R.id.loginEmailET);
-        passwordET = (EditText) findViewById(R.id.loginPasswordET);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+        alertDialogBuilder.setTitle("data not valid");
+        alertDialogBuilder
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog = alertDialogBuilder.create();
+        emailEditText = (EditText) findViewById(R.id.emailEditText);
+        passwordEditText = (EditText) findViewById(R.id.passwordEditText);
     }
 
-    public void registerBtnClicked(View view) {
+    public void registerUser(View view) {
         Intent registerIntent = new Intent(this, RegisterActivity.class);
         startActivity(registerIntent);
     }
 
-    public void loginBtnClicked(View view) {
-        if (!checkUserExists()) {
-            return;
-        }
-    }
-
-    private boolean checkUserExists() {
-        String email = emailET.getText().toString().trim();
-        String password = passwordET.getText().toString().trim();
+    public void loginUser(View view) {
+        String email = emailEditText.getText().toString().trim();
+        String password = passwordEditText.getText().toString().trim();
         final boolean valid = true;
         if (TextUtils.isEmpty(email)) {
-            alertDialog.setMessage("email is required!");
+            alertDialog.setMessage("email is required");
             alertDialog.show();
-            return false;
+            return;
         } else if (TextUtils.isEmpty(password)) {
-            alertDialog.setMessage("password is required!");
+            alertDialog.setMessage("password is required");
             alertDialog.show();
-            return false;
+            return;
         }
-        progressDialog.setMessage(getString(R.string.login_user));
+        progressDialog.setMessage("Login, please wait");
         progressDialog.setIndeterminate(true);
         progressDialog.show();
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    startActivity(new Intent(MainActivity.this, PlannerActivity.class));
+                    startActivity(new Intent(MainActivity.this, PlannerBudgetActivity.class));
                 } else {
                     alertDialog.setMessage(task.getException().getMessage());
                     alertDialog.show();
@@ -77,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         });
-        return valid;
     }
 
 }

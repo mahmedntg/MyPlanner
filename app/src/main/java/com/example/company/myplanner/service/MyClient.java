@@ -42,7 +42,7 @@ public class MyClient extends AsyncTask<String, Void, Bitmap> {
             jsonParam.put("to", FirebaseInstanceId.getInstance().getToken());
             jsonParam.put("notification", jsonParam1);
 
-            jsonData.put("time", "05:53 PM");
+            jsonData.put("time", "18:08");
             jsonData.put("score", "5x1");
             jsonParam.put("data", jsonData);
 

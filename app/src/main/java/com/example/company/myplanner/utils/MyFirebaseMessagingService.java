@@ -9,10 +9,8 @@ import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import com.example.company.myplanner.MainActivity;
 import com.example.company.myplanner.R;
-import com.example.company.myplanner.ToDoActivity;
-import com.google.firebase.messaging.FirebaseMessaging;
+import com.example.company.myplanner.AddPlannerActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -35,7 +33,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     private void createNotification(String messageTitle,String messageBody) {
-        Intent intent = new Intent(this, ToDoActivity.class);
+        Intent intent = new Intent(this, AddPlannerActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent resultIntent = PendingIntent.getActivity(this, 0, intent,
                 PendingIntent.FLAG_ONE_SHOT);

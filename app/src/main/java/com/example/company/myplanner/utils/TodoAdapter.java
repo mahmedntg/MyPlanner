@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.company.myplanner.MainActivity;
 import com.example.company.myplanner.PlannerActivity;
+import com.example.company.myplanner.PlannerInfoActivity;
 import com.example.company.myplanner.R;
-import com.example.company.myplanner.ToDoActivity;
+import com.example.company.myplanner.AddPlannerActivity;
 
 import java.util.List;
 
@@ -91,9 +91,11 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.MyViewHolder> 
 
         @Override
         public void onClick(View v) {
-            Intent newIntent = new Intent(activity, ToDoActivity.class);
+            Intent newIntent = new Intent(activity, AddPlannerActivity.class);
             newIntent.putExtra("todo", todoList.get(position));
             if (v.getId() == R.id.nameTextView || v.getId() == R.id.dateTimeTextView) {
+                newIntent = new Intent(activity, PlannerInfoActivity.class);
+                newIntent.putExtra("todo", todoList.get(position));
                 activity.startActivity(newIntent);
             } else if (v.getId() == R.id.deleteTextView) {
                 PlannerActivity mainActivity = (PlannerActivity) activity;

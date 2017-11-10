@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.company.myplanner">
-<uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +22,7 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".PlannerActivity" />
-        <activity android:name=".ToDoActivity"></activity>
+        <activity android:name=".AddPlannerActivity" />
 
         <service android:name=".utils.MyFirebaseMessagingService">
             <intent-filter>
@@ -27,9 +31,21 @@
         </service>
         <service android:name=".utils.FirebaseIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+
+        <receiver android:name=".service.DeviceBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".AddBudgetActivity" />
+        <activity android:name=".BudgetActivity" />
+        <activity android:name=".PlannerBudgetActivity" />
+        <activity android:name=".PlannerInfoActivity" />
+        <activity android:name=".PeriodActivity"></activity>
     </application>
 
 </manifest>

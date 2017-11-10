@@ -28,7 +28,7 @@ import java.text.MessageFormat;
 import java.util.Calendar;
 
 public class RegisterActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
-    private EditText nameET, dobET, userNameET, passwordET, confirmPasswordET;
+    private EditText nameET, dobET, userNameET, passwordET, confirmPasswordET,salaryEditText;
     private RadioGroup genderRG;
     private RadioGroup typeRG;
     private ProgressDialog progressDialog;
@@ -50,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         dobET = (EditText) findViewById(R.id.edit_dob);
         userNameET = (EditText) findViewById(R.id.edit_userName);
         passwordET = (EditText) findViewById(R.id.edit_password);
+        salaryEditText = (EditText) findViewById(R.id.edit_salary);
         genderRG = (RadioGroup) findViewById(R.id.genderRG);
         typeRG = (RadioGroup) findViewById(R.id.typeRG);
         ((RadioButton) findViewById(R.id.maleRadioBtn)).setChecked(true);
@@ -67,17 +68,18 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         });
     }
 
-    public void registerUserBtnClicked(View view) {
+    public void registerUser(View view) {
         final String name = nameET.getText().toString().trim();
         final String dob = dobET.getText().toString().trim();
         final String userName = userNameET.getText().toString().trim();
         final String password = passwordET.getText().toString().trim();
+        final String salary=salaryEditText.getText().toString();
         int genderId = genderRG.getCheckedRadioButtonId();
         int typeId = typeRG.getCheckedRadioButtonId();
         final String gender = ((RadioButton) findViewById(genderId)).getText().toString();
         final String type = ((RadioButton) findViewById(typeId)).getText().toString();
         String message = getString(R.string.value_required_msg).trim();
-        User user = new User(name, userName, password, dob, gender, type);
+        User user = new User(name, userName, password, dob, gender, type,salary,"");
         if (!isDataValid(message, user)) {
             return;
         }
@@ -94,6 +96,8 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
                     ref.child("gender").setValue(gender);
                     ref.child("type").setValue(type);
                     ref.child("userName").setValue(userName);
+                    ref.child("salary").setValue(salary);
+                    ref.child("balance").setValue(salary);
                     startActivity(new Intent(RegisterActivity.this, MainActivity.class));
                 } else {
                     alertDialog.setMessage(task.getException().getMessage());

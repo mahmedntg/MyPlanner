@@ -42,7 +42,8 @@
                 android:id="@+id/edit_dob"
                 style="@style/editTextStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="date" />
         </TableRow>
 
         <TableRow>
@@ -106,6 +107,22 @@
         <TableRow>
 
             <TextView
+                android:id="@+id/textView91"
+                style="@style/tableColumnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/salary" />
+
+            <EditText
+                android:id="@+id/edit_salary"
+                style="@style/editTextStyle.numberDecimalStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
                 android:id="@+id/textView8"
                 style="@style/tableColumnText"
                 android:layout_width="wrap_content"
@@ -116,7 +133,8 @@
                 android:id="@+id/edit_userName"
                 style="@style/editTextStyle.emailStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:hint="enter your email" />
         </TableRow>
 
         <TableRow>
@@ -132,19 +150,18 @@
                 android:id="@+id/edit_password"
                 style="@style/editTextStyle.passwordStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:hint="enter your password" />
         </TableRow>
 
         <TableRow>
 
             <Button
-                style="@style/buttonStyle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="200dp"
-                android:layout_marginTop="20dp"
                 android:layout_span="2"
-                android:onClick="registerUserBtnClicked"
+                android:onClick="registerUser"
+                android:layout_margin="15dp"
                 android:text="@string/register" />
         </TableRow>
     </TableLayout>

@@ -19,7 +19,7 @@
             android:text="drink wateer" />
         <TextView
             android:id="@+id/dateTimeTextView"
-            android:layout_width="110dp"
+            android:layout_width="120dp"
             android:layout_marginTop="10dp"
             android:layout_height="match_parent"
             android:layout_toRightOf="@+id/nameTextView"

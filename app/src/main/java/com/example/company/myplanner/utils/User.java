@@ -5,18 +5,20 @@ package com.example.company.myplanner.utils;
  */
 
 public class User {
-    private String name, email, password, dob, gender, type;
+    private String name, email, password, dob, gender, type, salary, balance;
 
     public User() {
     }
 
-    public User(String name, String email, String password, String dob, String gender, String type) {
+    public User(String name, String email, String password, String dob, String gender, String type, String salary, String balance) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.dob = dob;
         this.gender = gender;
         this.type = type;
+        this.salary = salary;
+        this.balance = balance;
     }
 
     public String getName() {
@@ -65,5 +67,21 @@ public class User {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public void setBalance(String balance) {
+        this.balance = balance;
     }
 }

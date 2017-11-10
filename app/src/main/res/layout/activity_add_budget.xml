@@ -4,39 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="15dp"
     android:orientation="vertical"
-    tools:context="com.example.company.myplanner.MainActivity">
+    tools:context="com.example.company.myplanner.AddPlannerActivity">
 
     <EditText
-        android:id="@+id/emailEditText"
+        android:id="@+id/commitEditText"
+        style="@style/editTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:hint="enter your email"
-        android:inputType="textEmailAddress" />
+        android:hint="enter your commitment" />
 
     <EditText
-        android:id="@+id/passwordEditText"
+        android:id="@+id/valueEditText"
+        style="@style/editTextStyle.numberDecimalStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:inputType="textPassword"
-        android:hint="enter your password"/>
+        android:hint="enter budget" />
 
     <Button
-        android:layout_width="match_parent"
+        android:id="@+id/addBtn"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="15dp"
-        android:onClick="loginUser"
-        android:text="Login"
-        android:textAllCaps="false" />
+        android:background="@color/colorAccent"
+        android:onClick="addBtnClicked"
+        android:drawableLeft="@mipmap/ic_add_circle_black_48dp"
+        android:text="Add" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:onClick="registerUser"
-        android:text="Register"
-        android:textAllCaps="false" />
+    />
 
 </LinearLayout>
+
