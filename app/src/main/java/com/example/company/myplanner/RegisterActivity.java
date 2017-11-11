@@ -3,7 +3,7 @@ package com.example.company.myplanner;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
-import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.company.myplanner.utils.MyAlertDialog;
 import com.example.company.myplanner.utils.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,7 +27,7 @@ import java.text.MessageFormat;
 import java.util.Calendar;
 
 public class RegisterActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
-    private EditText nameET, dobET, userNameET, passwordET, confirmPasswordET,salaryEditText;
+    private EditText nameEditText, dobEditText, userNameEditText, passwordEditText, salaryEditText;
     private RadioGroup genderRG;
     private RadioGroup typeRG;
     private ProgressDialog progressDialog;
@@ -44,18 +43,26 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
         progressDialog = new ProgressDialog(this);
-        String alertTitle = getString(R.string.validation_title_alert);
-        alertDialog = MyAlertDialog.createAlertDialog(this, alertTitle);
-        nameET = (EditText) findViewById(R.id.edit_name);
-        dobET = (EditText) findViewById(R.id.edit_dob);
-        userNameET = (EditText) findViewById(R.id.edit_userName);
-        passwordET = (EditText) findViewById(R.id.edit_password);
-        salaryEditText = (EditText) findViewById(R.id.edit_salary);
-        genderRG = (RadioGroup) findViewById(R.id.genderRG);
-        typeRG = (RadioGroup) findViewById(R.id.typeRG);
-        ((RadioButton) findViewById(R.id.maleRadioBtn)).setChecked(true);
-        ((RadioButton) findViewById(R.id.studentRadioBtn)).setChecked(true);
-        dobET.setOnClickListener(new View.OnClickListener() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+        alertDialogBuilder.setTitle("data not valid");
+        alertDialogBuilder
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog = alertDialogBuilder.create();
+        nameEditText = (EditText) findViewById(R.id.nameEditText);
+        dobEditText = (EditText) findViewById(R.id.dobEditText);
+        userNameEditText = (EditText) findViewById(R.id.userNameEditText);
+        passwordEditText = (EditText) findViewById(R.id.passwordEditText);
+        salaryEditText = (EditText) findViewById(R.id.salaryEditText);
+        genderRG = (RadioGroup) findViewById(R.id.genderRadioGroup);
+        typeRG = (RadioGroup) findViewById(R.id.typeRadioGroup);
+        ((RadioButton) findViewById(R.id.maleRadio)).setChecked(true);
+        ((RadioButton) findViewById(R.id.studentRadio)).setChecked(true);
+        dobEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar calendar = Calendar.getInstance();
@@ -69,21 +76,45 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
     }
 
     public void registerUser(View view) {
-        final String name = nameET.getText().toString().trim();
-        final String dob = dobET.getText().toString().trim();
-        final String userName = userNameET.getText().toString().trim();
-        final String password = passwordET.getText().toString().trim();
-        final String salary=salaryEditText.getText().toString();
+        final String name = nameEditText.getText().toString().trim();
+        final String dob = dobEditText.getText().toString().trim();
+        final String userName = userNameEditText.getText().toString().trim();
+        final String password = passwordEditText.getText().toString().trim();
+        final String salary = salaryEditText.getText().toString();
         int genderId = genderRG.getCheckedRadioButtonId();
         int typeId = typeRG.getCheckedRadioButtonId();
         final String gender = ((RadioButton) findViewById(genderId)).getText().toString();
         final String type = ((RadioButton) findViewById(typeId)).getText().toString();
         String message = getString(R.string.value_required_msg).trim();
-        User user = new User(name, userName, password, dob, gender, type,salary,"");
-        if (!isDataValid(message, user)) {
+        User user = new User(name, userName, password, dob, gender, type, salary, "");
+        if (TextUtils.isEmpty(user.getName())) {
+            message = MessageFormat.format(message, "Name");
+            alertDialog.setMessage(message);
+            alertDialog.show();
+            return;
+        } else if (TextUtils.isEmpty(user.getDob())) {
+            message = MessageFormat.format(message, "Date of birth");
+            alertDialog.setMessage(message);
+            alertDialog.show();
+            return;
+        } else if (TextUtils.isEmpty(user.getSalary())) {
+            message = MessageFormat.format(message, "Salary");
+            alertDialog.setMessage(message);
+            alertDialog.show();
+            return;
+        } else if (TextUtils.isEmpty(user.getEmail())) {
+            message = MessageFormat.format(message, "userName");
+            alertDialog.setMessage(message);
+            alertDialog.show();
+            return;
+        } else if (TextUtils.isEmpty(user.getPassword())) {
+            message = MessageFormat.format(message, "Password");
+            alertDialog.setMessage(message);
+            alertDialog.show();
             return;
         }
-        progressDialog.setMessage(getString(R.string.register_user));
+
+        progressDialog.setMessage("Registering user");
         progressDialog.show();
         firebaseAuth.createUserWithEmailAndPassword(userName, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -149,6 +180,6 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         year = year;
         month = month + 1;
         dayOfMonth = dayOfMonth;
-        dobET.setText(day + "/" + month + "/" + year);
+        dobEditText.setText(day + "/" + month + "/" + year);
     }
 }

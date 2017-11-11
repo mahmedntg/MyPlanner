@@ -4,165 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="15dp"
+    android:orientation="vertical"
     tools:context="com.example.company.myplanner.RegisterActivity">
 
-    <TableLayout
+    <EditText
+        android:id="@+id/nameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/table_margin"
-        android:padding="@dimen/table_padding"
-        android:stretchColumns="1">
+        android:layout_marginBottom="10dp"
+        android:hint="enter your name"
+        android:maxLines="1"
+        android:singleLine="true" />
 
-        <TableRow>
+    <EditText
+        android:id="@+id/dobEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="entery your birth date"
+        android:inputType="date"
+        android:maxLines="1"
+        android:singleLine="true" />
 
-            <TextView
-                android:id="@+id/textView3"
-                style="@style/tableColumnText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/name" />
+    <RadioGroup
+        android:id="@+id/genderRadioGroup"
+        android:layout_width="wrap_content"
 
-            <EditText
-                android:id="@+id/edit_name"
-                style="@style/editTextStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </TableRow>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
-        <TableRow>
+        <RadioButton
+            android:id="@+id/maleRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male" />
 
-            <TextView
-                android:id="@+id/textView12"
-                style="@style/tableColumnText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dob" />
+        <RadioButton
+            android:id="@+id/femaleRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female" />
+    </RadioGroup>
 
-            <EditText
-                android:id="@+id/edit_dob"
-                style="@style/editTextStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="date" />
-        </TableRow>
+    <RadioGroup
+        android:id="@+id/typeRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
-        <TableRow>
+        <RadioButton
+            android:id="@+id/studentRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student" />
 
-            <TextView
-                android:id="@+id/textView2"
-                style="@style/tableColumnText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/gender" />
+        <RadioButton
+            android:id="@+id/employeeRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Employee" />
+    </RadioGroup>
 
-            <RadioGroup
-                android:id="@+id/genderRG"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+    <EditText
+        android:id="@+id/salaryEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter your salary"
+        android:inputType="numberDecimal" />
 
-                <RadioButton
-                    android:id="@+id/maleRadioBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Male" />
+    <EditText
+        android:id="@+id/userNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="enter your email"
+        android:inputType="textEmailAddress" />
 
-                <RadioButton
-                    android:id="@+id/femaleRadioBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Female" />
-            </RadioGroup>
-        </TableRow>
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="enter your password"
+        android:inputType="textPassword" />
 
-        <TableRow>
-
-            <TextView
-                android:id="@+id/textView13"
-                style="@style/tableColumnText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/type" />
-
-            <RadioGroup
-                android:id="@+id/typeRG"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/studentRadioBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Student" />
-
-                <RadioButton
-                    android:id="@+id/employeeRadioBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Employee" />
-            </RadioGroup>
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/textView91"
-                style="@style/tableColumnText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/salary" />
-
-            <EditText
-                android:id="@+id/edit_salary"
-                style="@style/editTextStyle.numberDecimalStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/textView8"
-                style="@style/tableColumnText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/userName" />
-
-            <EditText
-                android:id="@+id/edit_userName"
-                style="@style/editTextStyle.emailStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="enter your email" />
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/textView9"
-                style="@style/tableColumnText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/password" />
-
-            <EditText
-                android:id="@+id/edit_password"
-                style="@style/editTextStyle.passwordStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="enter your password" />
-        </TableRow>
-
-        <TableRow>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_span="2"
-                android:onClick="registerUser"
-                android:layout_margin="15dp"
-                android:text="@string/register" />
-        </TableRow>
-    </TableLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_span="2"
+        android:background="@color/colorAccent"
+        android:onClick="registerUser"
+        android:text="@string/register" />
 </LinearLayout>

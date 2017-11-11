@@ -10,7 +10,8 @@
 
     <EditText
         android:id="@+id/commitEditText"
-        style="@style/editTextStyle"
+        android:singleLine="true"
+        android:maxLines="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
@@ -18,7 +19,7 @@
 
     <EditText
         android:id="@+id/valueEditText"
-        style="@style/editTextStyle.numberDecimalStyle"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"

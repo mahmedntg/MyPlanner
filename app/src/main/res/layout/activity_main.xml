@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:onClick="loginUser"
-        android:text="Login"
+        android:text="Login" android:background="@color/colorAccent"
         android:textAllCaps="false" />
 
     <Button
@@ -37,6 +37,7 @@
         android:layout_margin="15dp"
         android:onClick="registerUser"
         android:text="Register"
+        android:background="@color/colorAccent"
         android:textAllCaps="false" />
 
 </LinearLayout>

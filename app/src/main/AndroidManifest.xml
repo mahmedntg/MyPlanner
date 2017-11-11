@@ -20,20 +20,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".PlannerActivity" />
-        <activity android:name=".AddPlannerActivity" />
-
-        <service android:name=".utils.MyFirebaseMessagingService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-        <service android:name=".utils.FirebaseIDService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="Register User"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PlannerActivity"
+            android:label="Plans" android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".AddPlannerActivity"
+            android:label="Add Plan"
+            android:parentActivityName=".PlannerActivity" />
 
         <receiver android:name=".service.DeviceBootReceiver">
             <intent-filter>
@@ -41,11 +38,26 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".AddBudgetActivity" />
-        <activity android:name=".BudgetActivity" />
-        <activity android:name=".PlannerBudgetActivity" />
-        <activity android:name=".PlannerInfoActivity" />
-        <activity android:name=".PeriodActivity"></activity>
+        <activity
+            android:name=".AddBudgetActivity"
+            android:label="Add budget"
+            android:parentActivityName=".BudgetActivity" />
+        <activity
+            android:name=".BudgetActivity"
+            android:label="Budgets"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PlannerBudgetActivity"
+            android:label="Management"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PlannerInfoActivity"
+            android:label="Plan Information"
+            android:parentActivityName=".PlannerActivity" />
+        <activity
+            android:name=".PeriodActivity"
+            android:label="Period Tracking"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>
