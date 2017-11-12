@@ -31,50 +31,15 @@ public class DeviceBootReceiver extends BroadcastReceiver {
         String message = intent.getStringExtra("message");
         String date = intent.getStringExtra("date");
         String key = intent.getStringExtra("key");
-        int id= intent.getIntExtra("id",0);
-        createNotification(context, title,message,date,key,id);
-          /*  PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0);
-
-            AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(System.currentTimeMillis());
-            calendar.set(Calendar.HOUR_OF_DAY, 20);
-            calendar.set(Calendar.MINUTE, 33);
-            calendar.set(Calendar.SECOND, 1);
-
-        manager.setRepeating(AlarmManager.RTC_WAKEUP, Calendar.getInstance().getTimeInMillis() + (5 * 1000), 10000, pendingIntent);
-*/
+        int id = intent.getIntExtra("id", 0);
+        createNotification(context, title, message, date, key, id);
     }
 
-    public void showSmallNotification(Context mCtx, String title, String message) {
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mCtx);
-        Notification notification;
-        Uri notificationSoundURI = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        notification = mBuilder.setSmallIcon(R.mipmap.ic_launcher).setTicker(title).setWhen(0)
-                .setAutoCancel(true)
-                .setContentTitle(title)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.mipmap.ic_launcher))
-                .setSound(notificationSoundURI)
-                .setContentText(message)
-                .build();
-
-        notification.defaults |= Notification.DEFAULT_SOUND;
-        notification.defaults |= Notification.DEFAULT_VIBRATE;
-        notification.flags |= Notification.FLAG_AUTO_CANCEL;
-
-        NotificationManager notificationManager = (NotificationManager) mCtx.getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(0, notification);
-
-
-    }
-
-    private void createNotification(Context context, String messageTitle, String messageBody,String date,String key,int id) {
+    private void createNotification(Context context, String messageTitle, String messageBody, String date, String key, int id) {
         Intent intent = new Intent(context, PlannerInfoActivity.class);
-        Todo todo=new Todo(messageTitle,messageBody,date);
-        intent.putExtra("key",key);
-        intent.putExtra("todo",todo);
+        Todo todo = new Todo(messageTitle, messageBody, date);
+        intent.putExtra("key", key);
+        intent.putExtra("todo", todo);
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent resultIntent = PendingIntent.getActivity(context, id, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
