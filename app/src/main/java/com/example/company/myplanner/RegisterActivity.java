@@ -139,42 +139,6 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         });
     }
 
-    private boolean isDataValid(String message, User user) {
-        boolean valid = true;
-        if (TextUtils.isEmpty(user.getEmail())) {
-            message = MessageFormat.format(message, "userName");
-            alertDialog.setMessage(message);
-            alertDialog.show();
-            valid = false;
-        } else if (TextUtils.isEmpty(user.getName())) {
-            message = MessageFormat.format(message, "Name");
-            alertDialog.setMessage(message);
-            alertDialog.show();
-            valid = false;
-        } else if (TextUtils.isEmpty(user.getDob())) {
-            message = MessageFormat.format(message, "Date of birth");
-            alertDialog.setMessage(message);
-            alertDialog.show();
-            valid = false;
-        } else if (TextUtils.isEmpty(user.getType())) {
-            message = MessageFormat.format(message, "type");
-            alertDialog.setMessage(message);
-            alertDialog.show();
-            valid = false;
-        } else if (TextUtils.isEmpty(user.getGender())) {
-            message = MessageFormat.format(message, "Gender");
-            alertDialog.setMessage(message);
-            alertDialog.show();
-            valid = false;
-        } else if (TextUtils.isEmpty(user.getPassword())) {
-            message = MessageFormat.format(message, "Password");
-            alertDialog.setMessage(message);
-            alertDialog.show();
-            valid = false;
-        }
-        return valid;
-    }
-
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         year = year;

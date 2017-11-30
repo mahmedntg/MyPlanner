@@ -21,7 +21,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
     private EditText emailEditText, passwordEditText;
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseReference;
     private AlertDialog alertDialog;
     private ProgressDialog progressDialog;
 
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        databaseReference = FirebaseDatabase.getInstance().getReference("users");
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
