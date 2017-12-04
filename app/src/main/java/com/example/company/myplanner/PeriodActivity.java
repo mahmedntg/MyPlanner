@@ -91,8 +91,13 @@ public class PeriodActivity extends AppCompatActivity implements DatePickerDialo
         pieChart.setData(pieData);
         pieChart.animateY(3000);
         pieChart.setDescription("Track Your Period");
+        String remainingString=(remainingDays +" days remaining");
+        if(remainingDays<=0){
+            remainingString="";
+        }
+
         pieChart.setCenterText("click here to start period \n " +
-                remainingDays+" days remaining");
+               remainingString);
         pieChart.setCenterTextSize(15f);
         pieChart.setClickable(true);
         pieChart.setOnTouchListener(null);
