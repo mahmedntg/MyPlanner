@@ -41,12 +41,6 @@ public class PlannerBudgetActivity extends TabActivity {
         tabMenu2.setContent(intent);
         tabHostWindow.addTab(tabMenu1);
         tabHostWindow.addTab(tabMenu2);
-        tabHostWindow.setCurrentTab(0);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         String userId = firebaseAuth.getCurrentUser().getUid();
         userReference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -68,5 +62,12 @@ public class PlannerBudgetActivity extends TabActivity {
             }
         });
 
+
+        tabHostWindow.setCurrentTab(0);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }
