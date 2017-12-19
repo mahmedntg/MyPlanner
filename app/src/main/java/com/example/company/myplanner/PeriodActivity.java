@@ -80,6 +80,7 @@ public class PeriodActivity extends AppCompatActivity implements DatePickerDialo
         } else {
             entries.add(new BarEntry(0, 0));
             PieEntryLabels.add("No Period Selected");
+            remainingDays=0;
         }
         pieChart.setUsePercentValues(false);
         pieDataSet = new PieDataSet(entries, "");
